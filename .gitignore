@@ -66,3 +66,4 @@ venv.bak/
 # Django
 local.py
 *.sqlite3
+static/
