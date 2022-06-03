@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags wagtailuserbar wagtailmetadata_tags %}
+
+{% block meta_tag %}
+  {% meta_tags %}
+{% endblock %}
+
+{% block body_class %}template-postspage{% endblock %}
+
+{% block content %}
+<div class="leading-relaxed">
+    <div class="flex items-center justify-center h-screen"> 
+    <div class="p-10">
+      <div class="">
+        <h1>
+          <a href="/">Aleksandr Popov</a>
+          /      
+            Posts     
+        </h1>    
+  <ol reversed class="postlist" style="counter-reset: start-from {{ count }}">
+    {% for post in blogpages %}
+        {% with post=post.specific %}
+                <li class="postlist-item">
+                <a href="{% pageurl post %}" class="postlist-link">{{ post.title }}</a>
+                <time class="postlist-date" datetime="{{ post.date }}">{{ post.date }}</time>
+                </li>
+        {% endwith %}
+    {% endfor %}
+  </ol>
+      </div>
+    </div>
+  </div>
+  </div>
+  <footer></footer>
+{% comment %}
+    <h1>{{ page.title }}</h1>
+
+    <div class="intro">{{ page.intro }}</div>
+
+    {% for post in blogpages %}
+        {% with post=post.specific %}
+            <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
+
+            {% with post.main_image as main_image %}
+                {% if main_image %}{% image main_image fill-160x100 %}{% endif %}
+            {% endwith %}
+
+            <p>{{ post.intro }}</p>
+            {{ post.body }}
+        {% endwith %}
+    {% endfor %}
+{% endcomment %}
+{% endblock %}

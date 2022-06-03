@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags wagtailuserbar wagtailmetadata_tags %}
+
+{% block meta_tag %}
+  {% meta_tags %}
+{% endblock %}
+
+{% block body_class %}template-cvpage{% endblock %}
+
+{% block content %}
+<div class="leading-relaxed">
+    <div class="flex items-center justify-center h-full">
+    <div class="p-10"> 
+      <div class="">
+        <h1>
+          <a href="/">{{ page.get_parent.specific.name }}</a>
+          /        
+          {{ page.get_parent.specific.profession }}        
+        </h1>
+        <p><em>born in <a href="{{ page.born_link }}">{{ page.born_city }}</a>, {{ page.born_country }}</em></p>
+  <hr>
+  <h2 id="skill-set" tabindex="-1">Skill set <a class="direct-link" href="#skill-set">#</a></h2>
+  <ul>
+  {{ page.skills }}
+  </ul>
+  <hr>
+  <h2 id="experience" tabindex="-1">Experience <a class="direct-link" href="#experience">#</a></h2>
+  <h3>Your company could be here =)</h3>
+  <h2 id="extra" tabindex="-1">Extra <a class="direct-link" href="#extra">#</a></h2>
+  <ul>
+  {{ page.extra }}
+  </ul>
+      </div>
+    </div>
+  </div>
+  </div>
+  <footer></footer>
+{% endblock %}

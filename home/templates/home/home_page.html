@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags wagtailuserbar wagtailmetadata_tags %}
+
+{% block meta_tag %}
+  {% meta_tags %}
+{% endblock %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block content %}
+<div class="leading-relaxed">
+  <div class="flex items-center justify-center h-screen">
+  <div class="p-10">
+    <div class="grid sm:grid-cols-5 grid-cols-2 gap-4">
+      <div class="col-span-2">
+        <img alt="logo" src="{% static 'img/logo.png' %}" class="object-contain h-48 w-full">
+      </div>
+      <div class="col-span-3">
+        <h1>
+          {{ page.name }}
+        </h1>
+        <p>{{ page.profession }}</p>
+        <ul class="p-0">         
+            <li class="list-none">
+              <a href="/about/" class="font-bold">About Me</a>
+            </li>          
+            <li class="list-none">
+              <a href="/cv/" class="font-bold">CV</a>
+            </li>          
+            <li class="list-none">
+              <a href="/posts/" class="font-bold">Posts</a>
+            </li>          
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<footer></footer>
+{% endblock %}

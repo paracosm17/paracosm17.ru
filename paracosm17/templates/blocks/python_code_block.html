@@ -1,0 +1,11 @@
+{% load static wagtailcore_tags %}
+
+{% block extracss%}
+<link href="{% static 'css/tomorrow-night.css'%}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block extrajs %}
+<script src="{% static 'js/rainbow-custom.min.js'%}"></script>
+{% endblock %}
+
+<pre><code data-language="python">{{ self.code }}</code></pre>
